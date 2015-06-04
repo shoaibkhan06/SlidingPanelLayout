@@ -116,9 +116,9 @@ public class DraggableLayout extends RelativeLayout {
                 settleToOpen = true;
             } else if (yvel < -AUTO_OPEN_SPEED_LIMIT) {
                 settleToOpen = false;
-            } else if (mDraggingBorder > rangeToCheck / 3) {
+            } else if (mDraggingBorder > rangeToCheck / 2) {
                 settleToOpen = true;
-            } else if (mDraggingBorder < rangeToCheck / 3) {
+            } else if (mDraggingBorder < rangeToCheck / 2) {
                 settleToOpen = false;
             }
 
@@ -148,7 +148,7 @@ public class DraggableLayout extends RelativeLayout {
         mVerticalRange = (int) (h);
 
         // For sliding the draggable view to half of the screen, the first time
-        if(firstSlide && mDragHelper.smoothSlideViewTo(mDraggableQueenView, 0, mVerticalRange/ 3)) {
+        if(firstSlide && mDragHelper.smoothSlideViewTo(mDraggableQueenView, 0, mVerticalRange/ 2)) {
         	ViewCompat.postInvalidateOnAnimation(DraggableLayout.this);
             firstSlide  = false;
         }
