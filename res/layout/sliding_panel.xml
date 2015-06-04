@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.byteshop.slidingpanel.DraggableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/outerlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <!-- android:background="#868686" -->
+
+    <com.byteshop.slidingpanel.observablescrollview.ObservableScrollView2
+        android:id="@+id/main_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:visibility="visible" >
+
+        <LinearLayout
+            android:id="@+id/translateable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/view1"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:background="@android:color/holo_red_dark"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Drag Me"
+                    android:textColor="@android:color/holo_orange_dark"
+                    android:textSize="50sp"
+                    android:textStyle="normal" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/view2"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:background="@android:color/holo_blue_bright"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/view3"
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:background="@android:color/black"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:background="@android:color/holo_green_dark"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="150dp"
+                android:background="@android:color/holo_orange_light"
+                android:orientation="vertical" />
+
+            <LinearLayout
+                android:id="@+id/filler_view"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:background="@android:color/holo_purple"
+                android:orientation="vertical" />
+        </LinearLayout>
+    </com.byteshop.slidingpanel.observablescrollview.ObservableScrollView2>
+
+</com.byteshop.slidingpanel.DraggableLayout>
