@@ -36,7 +36,7 @@ import com.example.slidingmenu2.R;
  *
  */
 public class DraggableLayout extends RelativeLayout {
-    private final double AUTO_OPEN_SPEED_LIMIT = 800.0;
+    private final double AUTO_OPEN_SPEED_LIMIT = 1000.0;
     private int mDraggingState = 0;
     private ObservableScrollView2 mDraggableQueenView; // Declare your draggable view / viewgroup here
     private ViewDragHelper mDragHelper;
@@ -146,17 +146,27 @@ public class DraggableLayout extends RelativeLayout {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         mVerticalRange = (int) (h);
-
-        // For sliding the draggable view to half of the screen, the first time
+        super.onSizeChanged(w, h, oldw, oldh);
+    }
+    
+    @Override
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+		super.onLayout(changed, l, t, r, b);
+		
+		if(firstSlide){
+			// Apply VDH offsets
+	        mDraggableQueenView.offsetLeftAndRight(0);
+	        mDraggableQueenView.offsetTopAndBottom(mVerticalRange);
+		}
+		
+		// For sliding the draggable view to half of the screen, the first time
         if(firstSlide && mDragHelper.smoothSlideViewTo(mDraggableQueenView, 0, mVerticalRange/ 3)) {
         	ViewCompat.postInvalidateOnAnimation(DraggableLayout.this);
             firstSlide  = false;
         }
-        
-        super.onSizeChanged(w, h, oldw, oldh);
-    }
+	}
 
-    protected void onStopDraggingToClosed() {
+	protected void onStopDraggingToClosed() {
         // To be implemented
     }
 
